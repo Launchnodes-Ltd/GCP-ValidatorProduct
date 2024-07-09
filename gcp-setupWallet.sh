@@ -26,12 +26,12 @@ function validate_password() {
                 
                 sudo docker run -it -v /home/"$username"/Eth2Validators/prysm-wallet-v2:/wallet -v /home/"$username"/password:/password --network="host" gcr.io/prysmaticlabs/prysm/validator:v5.0.3 wallet create --wallet-dir=/wallet --accept-terms-of-use --wallet-password-file=/password/pass.txt
                 
-                sudo docker run -it -v /home/"$username"/validator_keys:/keys -v /home/"$username"/Eth2Validators/prysm-wallet-v2:/wallet -v /home/"$username"/Eth2:/validatorDB -v /home/"$username"/password:/password --name AccountImport gcr.io/prysmaticlabs/prysm/validator:v5.0.3 --datadir=/validatorDB accounts import --keys-dir=/keys --wallet-dir=/wallet --accept-terms-of-use --wallet-password-file=/password/pass.txt --beacon-rpc-provider=34.123.232.83:4000 --attest-timely --enable-builder
+		        sudo docker run -it -v /home/"$username"/validator_keys:/keys -v /home/"$username"/Eth2Validators/prysm-wallet-v2:/wallet -v /home/"$username"/Eth2:/validatorDB -v /home/"$username"/password:/password --name AccountImport gcr.io/prysmaticlabs/prysm/validator:v5.0.3 --beacon-rpc-provider=34.123.232.83:4000 --attest-timely --enable-builder --datadir=/validatorDB accounts import --keys-dir=/keys --wallet-dir=/wallet --accept-terms-of-use --wallet-password-file=/password/pass.txt
                 sudo chown -R "$username":"$username" /home/"$username"/Eth2 /home/"$username"/Eth2Validators
                 sudo chmod 700 /home/"$username"/Eth2 /home/"$username"/Eth2Validators
 
                 ################# New Docker pull command ###########################################
-                sudo docker pull us-central1-docker.pkg.dev/launchnodesltd-public/validator-metering/latest:latest
+                #sudo docker pull us-central1-docker.pkg.dev/launchnodesltd-public/validator-metering/latest:latest
                 
                 return
             else
