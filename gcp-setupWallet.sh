@@ -16,7 +16,7 @@ function validate_password() {
                 sudo apt install unzip -y
                 unzip -o validator_keys.zip
 
-                sudo mkdir /home/"$username"/password
+                mkdir /home/"$username"/password
 
                 cd password
 
