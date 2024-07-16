@@ -23,7 +23,7 @@ function validate_password() {
 
                 echo $walletpassword > pass.txt
 
-  		sudo chown $username /home/"$username"/password -R
+  		#sudo chown $username /home/"$username"/password -R
 
                 cd /home/"$username"
                 
