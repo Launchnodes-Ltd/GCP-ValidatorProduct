@@ -22,7 +22,7 @@ function validate_password() {
 
                 echo $walletpassword > pass.txt
 
-  		chown rsa-key-20240710 /home/"$username"/password -R
+  		sudo chown $username /home/"$username"/password -R
 
                 cd /home/"$username"
                 
