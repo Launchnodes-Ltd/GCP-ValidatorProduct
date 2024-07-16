@@ -4,13 +4,14 @@ function validate_password() {
         
         echo "Set the password for Wallet: "
         read -s walletpassword
-        echo "echo username through which you are running this command or have done SSH"
-        read  username
-        echo "echo your wallet address"
-        read  walletaddress
         if [[ ${#walletpassword} -ge 8 && "$walletpassword" == *[A-Z]* && "$walletpassword" == *[a-z]* && "$walletpassword" == *[0-9]* ]]; then
         
             if [[ $walletpassword =~ ['!@#$%^&*()_+'] ]]; then
+
+      		echo "echo username through which you are running this command or have done SSH"
+        	read  username
+        	echo "echo your wallet address"
+        	read  walletaddress
                 
                 sudo apt install nano -y
                 sudo apt install unzip -y
