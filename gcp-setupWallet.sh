@@ -37,8 +37,8 @@ function validate_password() {
 		sudo chmod 700 /home/"$username"/Eth2 /home/"$username"/Eth2Validators
 
   		echo "Running docker"
-    		echo  docker run -d -it -v /home/"$username"/Eth2Validators/prysm-wallet-v2:/wallet -v /home/"$username"/Eth2:/validatorDB --network="host" --name validator gcr.io/prysmaticlabs/prysm/validator:v5.0.2 --beacon-rpc-provider=34.123.232.83:4000 --mainnet  --wallet-dir=/wallet --datadir=/validatorDB --suggested-fee-recipient="$walletaddress"
-    		docker run -d -it -v /home/"$username"/Eth2Validators/prysm-wallet-v2:/wallet -v /home/"$username"/Eth2:/validatorDB --network="host" --name validator gcr.io/prysmaticlabs/prysm/validator:v5.0.2 --beacon-rpc-provider=34.123.232.83:4000 --mainnet  --wallet-dir=/wallet --datadir=/validatorDB --suggested-fee-recipient="$walletaddress"
+    		#echo  docker run -d -it -v /home/"$username"/Eth2Validators/prysm-wallet-v2:/wallet -v /home/"$username"/Eth2:/validatorDB --network="host" --name validator gcr.io/prysmaticlabs/prysm/validator:v5.0.2 --beacon-rpc-provider=34.123.232.83:4000 --mainnet  --wallet-dir=/wallet --datadir=/validatorDB --suggested-fee-recipient="$walletaddress"
+    		sudo docker run -d -it -v /home/"$username"/Eth2Validators/prysm-wallet-v2:/wallet -v /home/"$username"/Eth2:/validatorDB --network="host" --name validator gcr.io/prysmaticlabs/prysm/validator:v5.0.2 --beacon-rpc-provider=34.123.232.83:4000 --mainnet  --wallet-dir=/wallet --datadir=/validatorDB --suggested-fee-recipient="$walletaddress"
 
                 ################# New Docker pull command ###########################################
                 #sudo docker pull us-central1-docker.pkg.dev/launchnodesltd-public/validator-metering/latest:latest
