@@ -37,8 +37,10 @@ function validate_password() {
                 
 		sudo chmod 700 /home/"$username"/Eth2 /home/"$username"/Eth2Validators
 
-  		echo "Running docker"
+  		echo "Running validator"
     		#echo  docker run -d -it -v /home/"$username"/Eth2Validators/prysm-wallet-v2:/wallet -v /home/"$username"/Eth2:/validatorDB --network="host" --name validator gcr.io/prysmaticlabs/prysm/validator:v5.0.2 --beacon-rpc-provider=34.123.232.83:4000 --mainnet  --wallet-dir=/wallet --datadir=/validatorDB --suggested-fee-recipient="$walletaddress"
+
+		sudo docker rm validator
 
     		sudo docker run -d -it -v /home/"$username"/Eth2Validators/prysm-wallet-v2:/wallet -v /home/"$username"/Eth2:/validatorDB -v /home/"$username"/password:/password --network="host" --name validator gcr.io/prysmaticlabs/prysm/validator:v5.0.2 --beacon-rpc-provider=34.123.232.83:4000 --mainnet  --wallet-dir=/wallet --attest-timely --enable-builder --accept-terms-of-use --wallet-password-file=/password/pass.txt --datadir=/validatorDB --suggested-fee-recipient="$walletaddress"
 
